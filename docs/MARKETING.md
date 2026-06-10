@@ -57,3 +57,13 @@ Mobile-first.
 Avoid generic startup clichés.
 Avoid stock-photo corporate SaaS design.
 Avoid enterprise styling.
+
+## Environment
+
+Marketing site (`buxmate.com`) env vars:
+
+- `NEXT_PUBLIC_APP_URL` — app product URL (`https://app.buxmate.com`)
+- `NEXT_PUBLIC_SITE_URL` — marketing site URL (`https://buxmate.com`)
+- `NEXT_PUBLIC_GTM_ID` — optional Google Tag Manager container
+- `RESEND_API_KEY` — server-only, for contact form
+- `EMAIL_FROM` — sender and recipient for contact form emails

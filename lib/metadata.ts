@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { LOGO_PATH } from "@/lib/brand";
 import { getSiteUrl } from "@/lib/env";
 
 export const SITE_TITLE =
@@ -32,6 +33,7 @@ export function createPageMetadata({
       description,
       locale: "en_AU",
       url,
+      images: [{ url: LOGO_PATH, alt: "Buxmate" }],
     },
     twitter: {
       card: "summary_large_image",

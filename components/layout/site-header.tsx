@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getAppUrl, getSignupUrl } from "@/lib/env";
 import { Logo } from "@/components/shared/logo";
+import { signikaWordmark } from "@/lib/fonts/signika-wordmark";
 import { Button } from "@/components/ui/button";
 import { MobileNav } from "@/components/layout/mobile-nav";
 
@@ -16,7 +17,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/90 backdrop-blur-md">
       <div className="section-container flex h-16 items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-        <Logo />
+        <Logo markOnly wordmarkClassName={signikaWordmark.className} />
 
         <nav
           className="hidden items-center gap-1 md:flex"

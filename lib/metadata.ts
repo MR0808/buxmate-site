@@ -6,16 +6,24 @@ import {
 import { getSiteUrl } from "@/lib/env";
 
 export const SITE_TITLE =
-  "Buxmate | Private Event Planning for Bucks, Hens & Group Weekends";
+  "Buxmate | Private Event Planning for Bucks & Hens";
 
 export const SITE_DESCRIPTION =
   "Plan private group events with RSVPs, shared costs, updates and photos in one place.";
 
-export const HOME_TITLE =
-  "Buxmate — Plan Bucks, Hens & Group Weekends in One Private Hub";
+/** Homepage `<title>` and `og:title` — keep at or under 60 characters. */
+export const HOME_TITLE = "Buxmate | Plan Bucks, Hens & Group Weekends";
 
-export const HOME_DESCRIPTION =
-  "Buxmate is a private event hub for bucks parties, hens parties and group weekends. Track RSVPs, split shared costs, post updates and collect photos — without spreadsheets or messy group chats.";
+/** Homepage meta description — keep at or under ~155 characters for Google. */
+export const HOME_META_DESCRIPTION =
+  "Private hub for bucks, hens and group weekends. RSVPs, shared costs, updates and photos — no spreadsheets or messy group chats.";
+
+/** Homepage social preview copy — keep at or under ~125 characters for X/LinkedIn. */
+export const HOME_OG_DESCRIPTION =
+  "Plan bucks, hens and group weekends in one private hub. RSVPs, shared costs, updates and photos.";
+
+/** @deprecated Use HOME_META_DESCRIPTION */
+export const HOME_DESCRIPTION = HOME_META_DESCRIPTION;
 
 export const SITE_KEYWORDS = [
   "bucks party planning",
@@ -44,12 +52,15 @@ function buildOgImages(alt: string) {
 export function createPageMetadata({
   title,
   description = SITE_DESCRIPTION,
+  socialDescription,
   path = "",
   keywords = SITE_KEYWORDS,
   ogImageAlt = "Buxmate — private event planning for bucks, hens and group weekends",
 }: {
   title?: string;
   description?: string;
+  /** Shorter copy for Open Graph / Twitter when meta description is too long. */
+  socialDescription?: string;
   path?: string;
   keywords?: readonly string[];
   ogImageAlt?: string;
@@ -57,6 +68,7 @@ export function createPageMetadata({
   const siteUrl = getSiteUrl();
   const url = path ? `${siteUrl}${path}` : siteUrl;
   const pageTitle = title ?? SITE_TITLE;
+  const socialDesc = socialDescription ?? description;
   const ogImages = buildOgImages(ogImageAlt);
 
   return {
@@ -69,7 +81,7 @@ export function createPageMetadata({
       type: "website",
       siteName: "Buxmate",
       title: pageTitle,
-      description,
+      description: socialDesc,
       locale: "en_AU",
       url,
       images: ogImages,
@@ -77,7 +89,7 @@ export function createPageMetadata({
     twitter: {
       card: "summary_large_image",
       title: pageTitle,
-      description,
+      description: socialDesc,
       images: ogImages.map((image) => image.url),
     },
   };

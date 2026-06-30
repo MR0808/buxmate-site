@@ -1,8 +1,8 @@
 import { getAppUrl, getSiteUrl } from "@/lib/env";
 import {
-  HOME_DESCRIPTION,
+  HOME_META_DESCRIPTION,
+  HOME_TITLE,
   SITE_DESCRIPTION,
-  SITE_TITLE,
 } from "@/lib/metadata";
 import { LOGO_PATH } from "@/lib/brand";
 
@@ -26,7 +26,7 @@ export function HomeJsonLd() {
         "@id": `${siteUrl}/#website`,
         url: siteUrl,
         name: "Buxmate",
-        description: HOME_DESCRIPTION,
+        description: HOME_META_DESCRIPTION,
         publisher: { "@id": `${siteUrl}/#organization` },
         inLanguage: "en-AU",
       },
@@ -34,8 +34,8 @@ export function HomeJsonLd() {
         "@type": "WebPage",
         "@id": `${siteUrl}/#webpage`,
         url: siteUrl,
-        name: SITE_TITLE,
-        description: HOME_DESCRIPTION,
+        name: HOME_TITLE,
+        description: HOME_META_DESCRIPTION,
         isPartOf: { "@id": `${siteUrl}/#website` },
         about: { "@id": `${siteUrl}/#organization` },
         inLanguage: "en-AU",
@@ -46,7 +46,7 @@ export function HomeJsonLd() {
         applicationCategory: "BusinessApplication",
         operatingSystem: "Web",
         url: appUrl,
-        description: HOME_DESCRIPTION,
+        description: HOME_META_DESCRIPTION,
         offers: {
           "@type": "Offer",
           price: "0",

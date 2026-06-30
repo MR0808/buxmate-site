@@ -8,6 +8,8 @@ type ProductScreenshotProps = {
     height: number;
     priority?: boolean;
     variant?: 'desktop' | 'mobile';
+    framed?: boolean;
+    className?: string;
 };
 
 export function ProductScreenshot({
@@ -16,15 +18,42 @@ export function ProductScreenshot({
     width,
     height,
     priority = false,
-    variant = 'desktop'
+    variant = 'desktop',
+    framed = true,
+    className
 }: ProductScreenshotProps) {
+    const image = (
+        <Image
+            src={src}
+            alt={alt}
+            width={width}
+            height={height}
+            priority={priority}
+            className="h-auto w-full"
+            sizes={
+                variant === 'desktop'
+                    ? '(max-width: 1024px) 100vw, 640px'
+                    : '(max-width: 640px) 280px, 390px'
+            }
+        />
+    );
+
+    if (!framed) {
+        return (
+            <div className={cn('overflow-hidden rounded-xl', className)}>
+                {image}
+            </div>
+        );
+    }
+
     return (
         <div
             className={cn(
                 'relative mx-auto w-full',
                 variant === 'desktop'
                     ? 'max-w-2xl'
-                    : 'max-w-[280px] sm:max-w-xs'
+                    : 'max-w-[280px] sm:max-w-xs',
+                className
             )}
         >
             <div
@@ -32,19 +61,7 @@ export function ProductScreenshot({
                 aria-hidden
             />
             <div className="relative overflow-hidden rounded-[1.75rem] border border-border/80 bg-card shadow-xl">
-                <Image
-                    src={src}
-                    alt={alt}
-                    width={width}
-                    height={height}
-                    priority={priority}
-                    className="h-auto w-full"
-                    sizes={
-                        variant === 'desktop'
-                            ? '(max-width: 1024px) 100vw, 640px'
-                            : '(max-width: 640px) 280px, 390px'
-                    }
-                />
+                {image}
             </div>
         </div>
     );

@@ -47,15 +47,15 @@ export function GuestExperienceSection() {
           <div className="grid gap-6 sm:grid-cols-3 lg:grid-cols-1">
             {guestMoments.map((moment) => (
               <article key={moment.title} className="buxmate-card p-5">
-                <div className="mb-4 overflow-hidden rounded-xl border border-border/60">
-                  <ProductScreenshot
-                    src={moment.screenshot.src}
-                    alt={moment.screenshot.alt}
-                    width={moment.screenshot.width}
-                    height={moment.screenshot.height}
-                    variant="mobile"
-                  />
-                </div>
+                <ProductScreenshot
+                  src={moment.screenshot.src}
+                  alt={moment.screenshot.alt}
+                  width={moment.screenshot.width}
+                  height={moment.screenshot.height}
+                  variant="mobile"
+                  framed={false}
+                  className="mb-4 border border-border/60"
+                />
                 <h3 className="font-heading text-lg font-semibold text-foreground">
                   {moment.title}
                 </h3>

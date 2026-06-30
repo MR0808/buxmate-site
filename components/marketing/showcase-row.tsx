@@ -47,8 +47,10 @@ export function ShowcaseRow({
   const images = (
     <div
       className={cn(
-        "flex w-full items-center justify-center gap-4",
-        screenshotSecondary ? "flex-col sm:flex-row" : "",
+        "grid w-full gap-4",
+        screenshotSecondary
+          ? "sm:grid-cols-2"
+          : "place-items-center",
       )}
     >
       <ProductScreenshot
@@ -57,6 +59,7 @@ export function ShowcaseRow({
         width={screenshot.width}
         height={screenshot.height}
         variant={screenshot.variant}
+        className={screenshotSecondary ? "max-w-none" : undefined}
       />
       {screenshotSecondary ? (
         <ProductScreenshot
@@ -65,6 +68,7 @@ export function ShowcaseRow({
           width={screenshotSecondary.width}
           height={screenshotSecondary.height}
           variant={screenshotSecondary.variant}
+          className="max-w-none"
         />
       ) : null}
     </div>

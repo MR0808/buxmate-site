@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  experimental: {
+    // Avoid Turbopack .next cache lock errors on Windows (especially with Dropbox).
+    turbopackFileSystemCacheForDev: false,
+  },
 };
 
 export default nextConfig;

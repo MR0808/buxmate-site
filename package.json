@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev --port 3001",
+    "dev:fresh": "npx tsx scripts/clean-next.ts && next dev --port 3001",
+    "clean": "npx tsx scripts/clean-next.ts",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"

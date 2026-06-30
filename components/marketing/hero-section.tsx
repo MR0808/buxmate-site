@@ -1,5 +1,9 @@
 import { CtaButtons } from "@/components/marketing/cta-buttons";
-import { ProductMockup } from "@/components/marketing/product-mockup";
+import { ProductScreenshot } from "@/components/marketing/product-screenshot";
+import {
+  SCREENSHOT_HERO_DIMENSIONS,
+  SCREENSHOT_HERO_PATH,
+} from "@/lib/brand";
 
 export function HeroSection() {
   return (
@@ -25,7 +29,14 @@ export function HeroSection() {
         </div>
 
         <div className="lg:justify-self-end">
-          <ProductMockup />
+          <ProductScreenshot
+            src={SCREENSHOT_HERO_PATH}
+            alt="Buxmate organiser dashboard showing event overview, activities, guests and payment tracking for a bucks weekend"
+            width={SCREENSHOT_HERO_DIMENSIONS.width}
+            height={SCREENSHOT_HERO_DIMENSIONS.height}
+            priority
+            variant="desktop"
+          />
         </div>
       </div>
     </section>

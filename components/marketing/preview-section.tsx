@@ -1,12 +1,22 @@
-import { ProductMockup } from "@/components/marketing/product-mockup";
+import { ProductScreenshot } from "@/components/marketing/product-screenshot";
 import { SectionHeading } from "@/components/marketing/section-heading";
+import {
+  SCREENSHOT_GUEST_MOBILE_DIMENSIONS,
+  SCREENSHOT_GUEST_MOBILE_PATH,
+} from "@/lib/brand";
 
 export function PreviewSection() {
   return (
     <section className="section-pad bg-muted/40">
       <div className="section-container grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div className="order-2 lg:order-1">
-          <ProductMockup />
+          <ProductScreenshot
+            src={SCREENSHOT_GUEST_MOBILE_PATH}
+            alt="Buxmate guest view on mobile showing activities, RSVP options and payment share for a group weekend"
+            width={SCREENSHOT_GUEST_MOBILE_DIMENSIONS.width}
+            height={SCREENSHOT_GUEST_MOBILE_DIMENSIONS.height}
+            variant="mobile"
+          />
         </div>
         <div className="order-1 max-w-lg lg:order-2">
           <SectionHeading

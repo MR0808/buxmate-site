@@ -1,15 +1,10 @@
 import Link from "next/link";
 import { getAppUrl, getSignupUrl } from "@/lib/env";
+import { headerNavLinks } from "@/lib/nav";
 import { Logo } from "@/components/shared/logo";
 import { signikaWordmark } from "@/lib/fonts/signika-wordmark";
 import { Button } from "@/components/ui/button";
 import { MobileNav } from "@/components/layout/mobile-nav";
-
-const navLinks = [
-  { href: "/how-it-works", label: "How it works" },
-  { href: "/privacy", label: "Privacy" },
-  { href: "/contact", label: "Contact" },
-] as const;
 
 export function SiteHeader() {
   const signupUrl = getSignupUrl();
@@ -23,7 +18,7 @@ export function SiteHeader() {
           className="hidden items-center gap-1 md:flex"
           aria-label="Main navigation"
         >
-          {navLinks.map((link) => (
+          {headerNavLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -39,9 +34,9 @@ export function SiteHeader() {
             asChild
             className="hidden rounded-full normal-case tracking-normal sm:inline-flex"
           >
-            <a href={signupUrl}>Create Event</a>
+            <a href={signupUrl}>Sign up</a>
           </Button>
-          <MobileNav links={navLinks} signupUrl={signupUrl} appUrl={getAppUrl()} />
+          <MobileNav links={headerNavLinks} signupUrl={signupUrl} appUrl={getAppUrl()} />
         </div>
       </div>
     </header>

@@ -15,7 +15,9 @@ export function FinalCtaSection() {
           <CtaButtons
             className="mt-8 justify-center"
             size="lg"
+            primaryLabel="Get started free"
             secondaryHref="/how-it-works"
+            secondaryLabel="Read the full guide"
           />
         </div>
       </div>

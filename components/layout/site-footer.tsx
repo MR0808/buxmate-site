@@ -1,12 +1,7 @@
 import Link from "next/link";
 import { getAppUrl } from "@/lib/env";
+import { footerNavLinks } from "@/lib/nav";
 import { Logo } from "@/components/shared/logo";
-
-const footerLinks = [
-  { href: "/how-it-works", label: "How it works" },
-  { href: "/privacy", label: "Privacy" },
-  { href: "/contact", label: "Contact" },
-] as const;
 
 export function SiteFooter() {
   const appUrl = getAppUrl();
@@ -28,7 +23,7 @@ export function SiteFooter() {
             className="flex flex-wrap gap-x-8 gap-y-3 text-sm"
             aria-label="Footer navigation"
           >
-            {footerLinks.map((link) => (
+            {footerNavLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -41,7 +36,7 @@ export function SiteFooter() {
               href={appUrl}
               className="text-muted-foreground transition-colors hover:text-foreground"
             >
-              App
+              Organiser app
             </a>
           </nav>
         </div>

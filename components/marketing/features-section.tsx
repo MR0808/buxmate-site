@@ -91,6 +91,12 @@ export function FeaturesSection() {
           className="mx-auto"
         />
 
+        <p className="mx-auto max-w-3xl text-center text-base leading-relaxed text-muted-foreground sm:text-lg">
+          From your first guest invite to the last photo upload, Buxmate keeps
+          organisers and guests on the same page — with a desktop command centre
+          for you and a simple mobile hub for everyone else.
+        </p>
+
         <div className="space-y-20 sm:space-y-28">
           {showcases.map((item) => (
             <ShowcaseRow

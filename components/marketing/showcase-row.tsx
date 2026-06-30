@@ -23,9 +23,9 @@ export function ShowcaseRow({
 }: ShowcaseRowProps) {
   const text = (
     <div className="flex max-w-lg flex-col justify-center">
-      <h3 className="font-heading text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+      <p className="font-heading text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
         {title}
-      </h3>
+      </p>
       <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
         {description}
       </p>

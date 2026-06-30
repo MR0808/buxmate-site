@@ -13,9 +13,12 @@ export function getAppUrl(): string {
 }
 
 export function getSiteUrl(): string {
+  if (process.env.NODE_ENV === "development") {
+    return "http://localhost:3001";
+  }
+
   const configured = process.env.NEXT_PUBLIC_SITE_URL;
   if (configured) return trimUrl(configured);
-  if (process.env.NODE_ENV === "development") return "http://localhost:3001";
   return PRODUCTION_SITE_URL;
 }
 

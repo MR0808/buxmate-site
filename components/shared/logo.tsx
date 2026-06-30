@@ -35,7 +35,7 @@ export function Logo({
     >
       <Image
         src={markSrc}
-        alt=""
+        alt="Buxmate logo"
         width={width}
         height={height}
         priority

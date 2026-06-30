@@ -38,9 +38,9 @@ export function ProblemSection() {
               <div className="mb-4 flex size-11 items-center justify-center rounded-2xl bg-brand-muted text-primary">
                 <pain.icon className="size-5" aria-hidden />
               </div>
-              <h3 className="font-heading text-lg font-semibold text-foreground">
+              <p className="font-heading text-lg font-semibold text-foreground">
                 {pain.title}
-              </h3>
+              </p>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 {pain.description}
               </p>

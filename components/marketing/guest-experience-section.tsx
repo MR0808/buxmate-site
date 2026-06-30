@@ -56,9 +56,9 @@ export function GuestExperienceSection() {
                   framed={false}
                   className="mb-4 border border-border/60"
                 />
-                <h3 className="font-heading text-lg font-semibold text-foreground">
+                <p className="font-heading text-lg font-semibold text-foreground">
                   {moment.title}
-                </h3>
+                </p>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                   {moment.description}
                 </p>

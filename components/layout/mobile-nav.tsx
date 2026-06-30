@@ -53,11 +53,11 @@ export function MobileNav({ links, signupUrl, appUrl }: MobileNavProps) {
             onClick={() => setOpen(false)}
             className="rounded-xl px-3 py-3 text-base font-medium text-muted-foreground hover:bg-muted"
           >
-            App
+            Open organiser app
           </a>
           <Button asChild className="mt-4 rounded-full normal-case tracking-normal">
             <a href={signupUrl} onClick={() => setOpen(false)}>
-              Create Event
+              Sign up free
             </a>
           </Button>
         </nav>

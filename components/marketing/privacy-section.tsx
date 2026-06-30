@@ -51,7 +51,7 @@ export function PrivacySection() {
                     className="mb-3 size-5 text-primary"
                     aria-hidden
                   />
-                  <h3 className="font-medium text-foreground">{point.title}</h3>
+                  <p className="font-medium text-foreground">{point.title}</p>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                     {point.description}
                   </p>

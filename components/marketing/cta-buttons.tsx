@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 
 type CtaButtonsProps = {
   className?: string;
+  primaryLabel?: string;
   secondaryHref?: string;
   secondaryLabel?: string;
   size?: "default" | "lg";
@@ -13,6 +14,7 @@ type CtaButtonsProps = {
 
 export function CtaButtons({
   className,
+  primaryLabel = "Create Event",
   secondaryHref = "/how-it-works",
   secondaryLabel = "See how it works",
   size = "default",
@@ -33,7 +35,7 @@ export function CtaButtons({
         className="h-12 rounded-full px-6 text-base normal-case tracking-normal"
       >
         <a href={signupUrl}>
-          Create Event
+          {primaryLabel}
           <ArrowRight className="size-4" aria-hidden />
         </a>
       </Button>

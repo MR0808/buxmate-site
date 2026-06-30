@@ -86,7 +86,7 @@ export function HowItWorksSection() {
                 <div className="relative aspect-[16/10] overflow-hidden border-b border-border/60 bg-muted/30">
                   <Image
                     src={step.screenshot.src}
-                    alt=""
+                    alt={step.screenshot.alt}
                     width={step.screenshot.width}
                     height={step.screenshot.height}
                     className="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
@@ -100,9 +100,9 @@ export function HowItWorksSection() {
                   <div className="mb-3 flex size-10 items-center justify-center rounded-xl bg-brand-muted text-primary">
                     <step.icon className="size-5" aria-hidden />
                   </div>
-                  <h3 className="font-heading text-lg font-semibold text-foreground">
+                  <p className="font-heading text-lg font-semibold text-foreground">
                     {step.title}
-                  </h3>
+                  </p>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                     {step.description}
                   </p>

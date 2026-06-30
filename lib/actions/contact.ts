@@ -1,5 +1,9 @@
 "use server";
 
+import {
+  assertContactSubmissionAllowed,
+  markContactSubmitted,
+} from "@/lib/contact-rate-limit";
 import { getEmailFrom, getResendClient } from "@/lib/email/resend";
 import {
   contactFormSchema,
@@ -20,7 +24,16 @@ export async function submitContactForm(
     return { success: false, error: message };
   }
 
-  const { name, email, message } = parsed.data;
+  const { name, email, message, companyWebsite, formStartedAt } = parsed.data;
+
+  if (companyWebsite) {
+    return { success: true };
+  }
+
+  const rateCheck = await assertContactSubmissionAllowed(formStartedAt);
+  if (!rateCheck.allowed) {
+    return { success: false, error: rateCheck.error };
+  }
 
   try {
     const resend = getResendClient();
@@ -48,6 +61,7 @@ export async function submitContactForm(
       };
     }
 
+    await markContactSubmitted();
     return { success: true };
   } catch (err) {
     console.error("Contact form error:", err);

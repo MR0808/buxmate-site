@@ -12,13 +12,17 @@ type FormState = {
   name: string;
   email: string;
   message: string;
+  companyWebsite: string;
 };
 
 const initialForm: FormState = {
   name: "",
   email: "",
   message: "",
+  companyWebsite: "",
 };
+
+const formStartedAt = Date.now();
 
 export function ContactForm() {
   const [form, setForm] = useState<FormState>(initialForm);
@@ -40,7 +44,10 @@ export function ContactForm() {
     setIsLoading(true);
     setFormError(null);
 
-    const result = await submitContactForm(form);
+    const result = await submitContactForm({
+      ...form,
+      formStartedAt,
+    });
     setIsLoading(false);
 
     if (!result.success) {
@@ -87,6 +94,18 @@ export function ContactForm() {
           {formError}
         </div>
       ) : null}
+
+      <div className="hidden" aria-hidden>
+        <Label htmlFor="companyWebsite">Company website</Label>
+        <Input
+          id="companyWebsite"
+          name="companyWebsite"
+          tabIndex={-1}
+          autoComplete="off"
+          value={form.companyWebsite}
+          onChange={(e) => updateField("companyWebsite", e.target.value)}
+        />
+      </div>
 
       <div className="space-y-2">
         <Label htmlFor="name">Name</Label>
